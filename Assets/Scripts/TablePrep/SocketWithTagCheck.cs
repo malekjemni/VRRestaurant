@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class SocketWithTagCheck : XRSocketInteractor
@@ -19,4 +20,10 @@ public class SocketWithTagCheck : XRSocketInteractor
         return interactable.CompareTag(targetTag);
     }
 
+
+    public void UnholdCloth(XRBaseInteractable interactable)
+    {
+        Debug.Log(interactable.gameObject.name);
+
+    }
 }
