@@ -84,8 +84,8 @@ public class SeatPlayer : MonoBehaviour
         text.text = "Waiting For Your " + orderManager.dishList[pos].name;
         orderManager.PlayDialogue(4);
         yield return new WaitForSeconds(20f);
-        Transform platPos = seatPrep.transform.GetChild(4).transform;
-        if(meal !=null) Destroy(meal);
+        Transform platPos = seatPrep.transform.Find("platPos");
+        if (meal !=null) Destroy(meal);
         meal = Instantiate(orderManager.dishList[pos], platPos.position, Quaternion.identity, platPos);
         text.text = "Enjoy Your Food!";
         orderManager.PlayDialogue(5);
@@ -96,7 +96,7 @@ public class SeatPlayer : MonoBehaviour
     IEnumerator DrinkOrderTimer(int pos)
     {
         yield return new WaitForSeconds(5f);
-        Transform platPos = seatPrep.transform.GetChild(5).transform;
+        Transform platPos = seatPrep.transform.Find("drinkPos");
         if (drink != null) Destroy(drink);
         drink = Instantiate(orderManager.drinkList[pos], platPos.position, Quaternion.identity, platPos);
     }

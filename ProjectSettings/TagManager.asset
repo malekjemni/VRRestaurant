@@ -9,6 +9,12 @@ TagManager:
   - Chair
   - Tablecloth
   - Tablecloth_small
+  - Flame
+  - Projectile
+  - Destroyer
+  - Fork
+  - Knife
+  - Spoon
   layers:
   - Default
   - TransparentFX
@@ -16,10 +22,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Grabbing
+  - Grabbable
+  - Hand
+  - HandPlayer
   - 
   - 
   - 
