@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6078606617164206789}
   - component: {fileID: 9006794513025189599}
   - component: {fileID: 3276977774713665136}
+  - component: {fileID: 5342906244894931135}
   m_Layer: 0
   m_Name: Egg and Ham
   m_TagString: Untagged
@@ -129,6 +130,105 @@ MonoBehaviour:
   attachPoint: {fileID: 0}
   cuttingFX: {fileID: 1260334799937022, guid: 2b28f2fdc5a65964f96ea4d2b9d6ca63, type: 3}
   eatingFX: {fileID: 1643851402782444, guid: 4f703a1da613efc43b08b1d2bdcfd49f, type: 3}
+  eatingClips:
+  - {fileID: 8300000, guid: 8d792f606855508419e3acd16150b50e, type: 3}
+  - {fileID: 8300000, guid: e91c76ba8bef6864a8a443786ec0b3ae, type: 3}
+--- !u!82 &5342906244894931135
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138819879733102700}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2682116620560300048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,6 +237,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4156434186905711438}
     m_Modifications:
+    - target: {fileID: 1019792026280292, guid: c85abddc25fd88945964a70ab93e3c52, type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 1643570892124914, guid: c85abddc25fd88945964a70ab93e3c52, type: 3}
       propertyPath: m_Name
       value: food dish 1
@@ -144,6 +248,18 @@ PrefabInstance:
     - target: {fileID: 1643570892124914, guid: c85abddc25fd88945964a70ab93e3c52, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798822997849516, guid: c85abddc25fd88945964a70ab93e3c52, type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812862879153588, guid: c85abddc25fd88945964a70ab93e3c52, type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823014424976716, guid: c85abddc25fd88945964a70ab93e3c52, type: 3}
+      propertyPath: m_TagString
+      value: Food
       objectReference: {fileID: 0}
     - target: {fileID: 4050134495544826, guid: c85abddc25fd88945964a70ab93e3c52, type: 3}
       propertyPath: m_RootOrder
@@ -188,6 +304,26 @@ PrefabInstance:
     - target: {fileID: 4050134495544826, guid: c85abddc25fd88945964a70ab93e3c52, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865509990514549180, guid: c85abddc25fd88945964a70ab93e3c52,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360551959315227338, guid: c85abddc25fd88945964a70ab93e3c52,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172329597379184111, guid: c85abddc25fd88945964a70ab93e3c52,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918000215929636496, guid: c85abddc25fd88945964a70ab93e3c52,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

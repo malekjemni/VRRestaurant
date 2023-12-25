@@ -15,6 +15,8 @@ TagManager:
   - Fork
   - Knife
   - Spoon
+  - Food
+  - Drink
   layers:
   - Default
   - TransparentFX

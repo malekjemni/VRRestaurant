@@ -17,10 +17,10 @@ public class SeatPlayer : MonoBehaviour
 
 
 
-    public GameObject meal;
-    public GameObject drink;
+    private GameObject meal;
+    private GameObject drink;
 
-    private bool canPlaceOrder = true;
+    private bool canPlaceOrder = false;
     private bool canOrderDrink = true;
 
     public void EnterChair()
@@ -70,6 +70,7 @@ public class SeatPlayer : MonoBehaviour
             text.text = "Preparing Your Table!";
             orderManager.PlayDialogue(2);
             yield return new WaitForSeconds(8f);
+            canPlaceOrder = true;
             seatPrep.SetActive(true);
             text.text = "You Can Place Order Now!";
             orderManager.PlayDialogue(3);
