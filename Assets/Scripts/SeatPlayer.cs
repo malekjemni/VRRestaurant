@@ -1,20 +1,17 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-
 
 public class SeatPlayer : MonoBehaviour
 {
     public GameObject playerController;
     public GameObject seatPos;
     public GameObject seatPrep;
-    public GameObject entry;
+    public GameObject[] entrys;
     public OrderFood orderManager;
     public TextMeshProUGUI text;
     public GameObject napkinTimer;
     public Transform target;
-
 
 
     private GameObject meal;
@@ -24,12 +21,11 @@ public class SeatPlayer : MonoBehaviour
     private bool canOrderDrink = true;
 
     public void EnterChair()
-    {      
+    {
         playerController.SetActive(false);
         seatPos.SetActive(true);
-        entry.SetActive(false);
+        foreach (var entry in entrys) { entry.SetActive(false); }       
         seatPos.transform.rotation = Quaternion.Euler(0, -target.rotation.eulerAngles.y, 0);
-
         StartCoroutine(showUiTimer());
     }
     public void ExitChair()
@@ -68,10 +64,13 @@ public class SeatPlayer : MonoBehaviour
             napkinTimer.GetComponent<Timer>().seconds = 8;
             napkinTimer.GetComponent<Timer>().StartTimer();
             text.text = "Preparing Your Table!";
-            orderManager.PlayDialogue(2);
-            yield return new WaitForSeconds(8f);
-            canPlaceOrder = true;
+            yield return new WaitForSeconds(6f);
+            orderManager.PlayDialogue(6);
             seatPrep.SetActive(true);
+            yield return new WaitForSeconds(4f);
+            orderManager.PlayDialogue(2);
+            yield return new WaitForSeconds(3f);
+            canPlaceOrder = true;         
             text.text = "You Can Place Order Now!";
             orderManager.PlayDialogue(3);
        
@@ -105,6 +104,6 @@ public class SeatPlayer : MonoBehaviour
     IEnumerator LeaveSeatDelay()
     {
         yield return new WaitForSeconds(2f);
-        entry.SetActive(true);
+        foreach (var entry in entrys) { entry.SetActive(true); }
     }
 }

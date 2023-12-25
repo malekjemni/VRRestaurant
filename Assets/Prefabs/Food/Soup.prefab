@@ -180,7 +180,7 @@ MonoBehaviour:
   spoonAttachPoint: {fileID: 0}
   soupBits: {fileID: 1495175752965530377, guid: 1cabab42e9b2f764f97fe6d3fd9ac81f,
     type: 3}
-  emptySoupPlatePrefab: {fileID: 100000, guid: a056745c1e0a2b840b7ff04698f39584, type: 3}
+  emptySoupPlatePrefab: {fileID: 100002, guid: f5a82a75b310b8e4aa3f77fbf9047e23, type: 3}
   eatingSoupFX: {fileID: 1260334799937022, guid: 2b28f2fdc5a65964f96ea4d2b9d6ca63,
     type: 3}
   eatingClips:
