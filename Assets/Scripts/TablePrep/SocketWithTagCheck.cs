@@ -6,7 +6,7 @@ public class SocketWithTagCheck : XRSocketInteractor
   public string targetTag = string.Empty;
 
     public override bool CanHover(XRBaseInteractable interactable)
-    {
+    {      
         return base.CanHover(interactable) && MatchUsingTag(interactable);
     }
     public override bool CanSelect(XRBaseInteractable interactable)
@@ -14,16 +14,8 @@ public class SocketWithTagCheck : XRSocketInteractor
         return base.CanSelect(interactable) && MatchUsingTag(interactable);
     }
 
-
     private bool MatchUsingTag(XRBaseInteractable interactable)
     {
         return interactable.CompareTag(targetTag);
-    }
-
-
-    public void UnholdCloth(XRBaseInteractable interactable)
-    {
-        Debug.Log(interactable.gameObject.name);
-
     }
 }

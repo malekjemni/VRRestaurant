@@ -20,12 +20,12 @@ public class SeatPlayer : MonoBehaviour
     private bool canPlaceOrder = false;
     private bool canOrderDrink = true;
 
+
     public void EnterChair()
     {
         playerController.SetActive(false);
         seatPos.SetActive(true);
         foreach (var entry in entrys) { entry.SetActive(false); }       
-        seatPos.transform.rotation = Quaternion.Euler(0, -target.rotation.eulerAngles.y, 0);
         StartCoroutine(showUiTimer());
     }
     public void ExitChair()
@@ -60,7 +60,9 @@ public class SeatPlayer : MonoBehaviour
     }
     IEnumerator showUiTimer()
     {
+
             orderManager.PlayDialogue(1);
+            napkinTimer.SetActive(true);
             napkinTimer.GetComponent<Timer>().seconds = 8;
             napkinTimer.GetComponent<Timer>().StartTimer();
             text.text = "Preparing Your Table!";
@@ -95,7 +97,7 @@ public class SeatPlayer : MonoBehaviour
 
     IEnumerator DrinkOrderTimer(int pos)
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         Transform platPos = seatPrep.transform.Find("drinkPos");
         if (drink != null) Destroy(drink);
         drink = Instantiate(orderManager.drinkList[pos], platPos.position, Quaternion.identity, platPos);
@@ -106,4 +108,5 @@ public class SeatPlayer : MonoBehaviour
         yield return new WaitForSeconds(2f);
         foreach (var entry in entrys) { entry.SetActive(true); }
     }
+
 }

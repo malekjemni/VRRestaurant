@@ -8,6 +8,7 @@ public class Clean : MonoBehaviour
     [SerializeField] private GameObject visauls;
     [SerializeField] private GameObject _soapBubbleFXPrefab;
     [SerializeField] private GameObject _bruchFXPrefab;
+    [SerializeField] private GameObject _waterHitFXPrefab;
     [SerializeField] private GameObject _cleanFXPrefab;
     [SerializeField] private AudioClip _scrubSound;
 
@@ -19,6 +20,7 @@ public class Clean : MonoBehaviour
     private AudioSource _audioSource;
     private bool _isCleaned = false;
     private int hitCount = 0;
+    private GameObject bruchFx;
 
     private void Start()
     {
@@ -34,6 +36,12 @@ public class Clean : MonoBehaviour
             _isRubbing = true;
             StartCoroutine(RubbingRoutine());
         }
+        if (other.CompareTag("Water"))
+        {
+            GameObject waterFx = Instantiate(_waterHitFXPrefab, transform.position, Quaternion.identity, transform);
+            waterFx.transform.localPosition = new Vector3(0, 0.015f, 0);
+            Destroy(waterFx, 2f);
+        }
     }
     private void OnTriggerStay(Collider other)
     {
@@ -42,9 +50,11 @@ public class Clean : MonoBehaviour
             hitCount++;
             if (hitCount >= 400 && _isCleaned)
             {
-                Instantiate(_cleanFXPrefab, transform.position, Quaternion.identity, transform);
+                Destroy(bruchFx);
+                GameObject cleandish = Instantiate(_cleanFXPrefab, transform.position, Quaternion.identity, transform);
                 ChangeMaterial(_cleanMaterial);
-                hitCount= 0;    
+                hitCount= 0;
+                Destroy(cleandish, 1f);              
             }
         }
     }
@@ -65,7 +75,7 @@ public class Clean : MonoBehaviour
         rubCount++;
         if (rubCount == 3) {
             _isCleaned = true;
-            Instantiate(_bruchFXPrefab, transform.position, Quaternion.identity, transform);
+            bruchFx = Instantiate(_bruchFXPrefab, transform.position, Quaternion.identity, transform);
             // ChangeMaterial(_cleanMaterial); 
         }       
         _isRubbing = false;
